@@ -129,7 +129,7 @@
 </p>
 
 <p>
-  <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8&timezone=Asia/Kolkata" alt="GitHub Streak" />
 </p>
 
 <picture>
