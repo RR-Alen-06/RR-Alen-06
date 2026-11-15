@@ -38,7 +38,7 @@
 ### 🔭 Currently Working On & 🌱 Learning
 
 - 🛠️ **Building**: Offline-first POS & ERP suites (`SimpleBilling`, `simplebilling_mobile`, `MarkSea`, `Market-BIA`) and `Portfolio-Builder`.
-- 🌱 **Exploring**: Advanced PostgreSQL RLS patterns, Drift/SQLite sync engines, and **ESP32 / Arduino IoT** hardware automation.
+- 🌱 **Exploring**: Advanced PostgreSQL RLS patterns, Drift/SQLite sync engines, and **STM32 / Arduino IoT** hardware automation.
 - 💬 **Ask me about**: Next.js 16, Flutter + Riverpod, Supabase multi-tenancy, ESC/POS thermal printing, or circuit tinkering.
 
 ---
@@ -103,7 +103,7 @@
     <td width="50%" valign="top">
       <h4>🔌 Microcontrollers &amp; IoT</h4>
       <p>Prototyping smart automation, sensor telemetry, and embedded control systems.</p>
-      <p><code>ESP32</code> <code>Arduino</code> <code>Sensors &amp; Relays</code> <code>Embedded C/C++</code></p>
+      <p><code>STM32</code> <code>Arduino</code> <code>Sensors &amp; Relays</code> <code>Embedded C/C++</code></p>
     </td>
     <td width="50%" valign="top">
       <h4>🔧 Circuit Design &amp; Soldering</h4>
