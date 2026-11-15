@@ -1,4 +1,4 @@
-name: Generate Contribution Snake
+name: Automated Profile Analytics & Snake
 
 on:
   schedule:
@@ -9,13 +9,41 @@ on:
       - main
 
 jobs:
-  generate:
+  update-profile:
     permissions:
       contents: write
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update Contribution Milestones & Stats
+        run: node scripts/update-stats.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+
+      - name: Commit & Push README Updates if Changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet README.md; then
+            git add README.md
+            git commit -m "chore(stats): auto-update contribution milestones [skip ci]"
+            git push origin main
+          else
+            echo "No changes in README.md stats."
+          fi
+
       - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk@v3
         with:
@@ -24,7 +52,7 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Push to output branch
+      - name: Push Snake Animation to Output Branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
