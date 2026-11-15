@@ -96,6 +96,25 @@
 
 ---
 
+### ⚡ Electronics & Hardware Workbench
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🔌 Microcontrollers &amp; IoT</h4>
+      <p>Prototyping smart automation, sensor telemetry, and embedded control systems.</p>
+      <p><code>ESP32</code> <code>Arduino</code> <code>Sensors &amp; Relays</code> <code>Embedded C/C++</code></p>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🔧 Circuit Design &amp; Soldering</h4>
+      <p>Hands-on PCB/perfboard assembly, power regulation, diagnostics, and electrical tinkering.</p>
+      <p><code>Soldering</code> <code>Multimeter Diagnostics</code> <code>Power Electronics</code> <code>Prototyping</code></p>
+    </td>
+  </tr>
+</table>
+
+---
+
 ### 📊 GitHub Analytics
 
 <div align="center">
@@ -128,6 +147,8 @@
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-RR--Alen--06-0f172a?style=for-the-badge&logo=github&logoColor=38bdf8)](https://github.com/RR-Alen-06)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alen_Sajan-0f172a?style=for-the-badge&logo=linkedin&logoColor=0a66c2)](https://linkedin.com/in/alensajan06)
+[![Email](https://img.shields.io/badge/Email-alensajan6%40yahoo.com-0f172a?style=for-the-badge&logo=maildotru&logoColor=f59e0b)](mailto:alensajan6@yahoo.com)
 [![GitHub Followers](https://img.shields.io/github/followers/RR-Alen-06?label=Follow&style=for-the-badge&color=10b981&logo=github)](https://github.com/RR-Alen-06?tab=followers)
 
 </div>
