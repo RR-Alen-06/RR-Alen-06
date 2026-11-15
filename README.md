@@ -133,15 +133,14 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RR-Alen-06&theme=tokyonight" alt="Alen's Profile Details & Contribution Graph" />
 </p>
 
-<!-- Language Breakdowns (By Commits & By Repos) -->
-<p>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RR-Alen-06&theme=tokyonight" alt="Languages by Commits" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RR-Alen-06&theme=tokyonight" alt="Top Languages by Repo" />
-</p>
-
-<!-- Overall Stats & Streak Counter -->
+<!-- Overall Stats & Language Breakdown -->
 <p>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RR-Alen-06&theme=tokyonight" alt="Alen's GitHub Stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RR-Alen-06&theme=tokyonight" alt="Languages by Commits" />
+</p>
+
+<!-- Streak Counter -->
+<p>
   <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8&timezone=Asia/Kolkata" alt="GitHub Streak" />
 </p>
 
