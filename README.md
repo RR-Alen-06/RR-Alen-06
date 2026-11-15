@@ -1,18 +1,18 @@
 <div align="center">
 
-<!-- Animated Header Banner -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1e293b,100:0ea5e9&height=200&section=header&text=Hi%2C%20I'm%20Alen%20%F0%9F%91%8B&fontSize=46&fontColor=f8fafc&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20%26%20Mobile%20Developer%20%E2%80%A2%20ERP%2C%20POS%20%26%20Offline-First%20Systems&descAlignY=60&descSize=16" alt="Alen Header Banner" />
+<h1>Hi, I'm Alen 👋</h1>
+<p><strong>Full-Stack &amp; Mobile Developer • ERP, POS &amp; Offline-First Systems</strong></p>
 
 <!-- Animated Typing Subheader -->
 <a href="https://github.com/RR-Alen-06">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=680&lines=Building+Multi-Tenant+Next.js+%2B+Supabase+ERPs;Crafting+Offline-First+Flutter+%26+React+Native+Apps;Designing+POS+Billing%2C+Ledgers+%26+Thermal+Printing" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=3200&pause=1000&color=38BDF8&center=true&vCenter=true&width=780&lines=Multi-Tenant+Next.js+%2B+Supabase+ERPs;Offline-First+Flutter+%26+React+Native+Apps;POS+Billing%2C+Ledgers+%26+Thermal+Printing" alt="Typing SVG" />
 </a>
 
 <br/>
 
 [![GitHub Profile](https://img.shields.io/badge/GitHub-RR--Alen--06-0f172a?style=flat-square&logo=github&logoColor=38bdf8)](https://github.com/RR-Alen-06)
 [![Focus](https://img.shields.io/badge/Focus-Web_%26_Mobile_Systems-0f172a?style=flat-square&logo=stackblitz&logoColor=10b981)](#featured-projects)
-[![Status](https://img.shields.io/badge/Status-Shipping_Production_Apps-0f172a?style=flat-square&logo=rocket&logoColor=f59e0b)](#github-analytics)
+[![Profile Views](https://komarev.com/ghpvc/?username=RR-Alen-06&color=0ea5e9&style=flat-square&label=PROFILE+VIEWS)](https://github.com/RR-Alen-06)
 
 </div>
 
@@ -46,7 +46,7 @@
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/RR-Alen-06/SimpleBilling">🧾 SimpleBilling</a></h3>
-      <p>All-in-one ERP & POS billing platform for print & photocopy shops with dual 80mm/A4 printing, FIFO customer ledgers, advance wallets, and multi-tenant RLS.</p>
+      <p>All-in-one ERP &amp; POS billing platform for print &amp; photocopy shops with dual 80mm/A4 printing, FIFO customer ledgers, advance wallets, and multi-tenant RLS.</p>
       <p><code>Next.js 16</code> <code>TypeScript</code> <code>Tailwind v4</code> <code>Supabase</code></p>
     </td>
     <td width="50%" valign="top">
@@ -58,13 +58,13 @@
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/RR-Alen-06/PDF-Maker">📄 PDF-Maker</a></h3>
-      <p>Offline-first Flutter utility app to convert photos & camera scans into PDFs, with built-in tools to merge, split, compress, extract, and reorder pages.</p>
+      <p>Offline-first Flutter utility app to convert photos &amp; camera scans into PDFs, with built-in tools to merge, split, compress, extract, and reorder pages.</p>
       <p><code>Flutter</code> <code>Riverpod</code> <code>SQLite</code> <code>Syncfusion PDF</code></p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/RR-Alen-06/PrintPro">🖨️ PrintPro</a></h3>
       <p>React-based billing and accounting application designed for print shops with itemized billing, payment handling, customer management, and inventory tracking.</p>
-      <p><code>React</code> <code>JavaScript</code> <code>Billing & Accounting</code></p>
+      <p><code>React</code> <code>JavaScript</code> <code>Billing &amp; Accounting</code></p>
     </td>
   </tr>
 </table>
@@ -84,17 +84,16 @@
 <div align="center">
 
 <p>
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=RR-Alen-06&show_icons=true&theme=tokyonight&bg_color=0f172a&border_color=1e293b&title_color=38bdf8&icon_color=10b981&text_color=e2e8f0" alt="Alen's GitHub Stats" />
-  <img height="170" src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8" alt="GitHub Streak" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RR-Alen-06&theme=tokyonight" alt="Alen's Profile Details & Contribution Graph" />
 </p>
 
 <p>
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RR-Alen-06&layout=compact&theme=tokyonight&bg_color=0f172a&border_color=1e293b&title_color=38bdf8&text_color=e2e8f0" alt="Top Languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RR-Alen-06&theme=tokyonight" alt="Alen's GitHub Stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RR-Alen-06&theme=tokyonight" alt="Alen's Top Languages" />
 </p>
 
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=RR-Alen-06&theme=tokyo-night&bg_color=0f172a&color=38bdf8&line=10b981&point=f59e0b&area=true&hide_border=true" alt="Alen's GitHub Activity Graph" />
+<p>
+  <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8" alt="GitHub Streak" />
+</p>
 
 </div>
-
-<!-- Footer Wave -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,50:1e293b,100:0f172a&height=100&section=footer" alt="Footer Wave" />
