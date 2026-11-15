@@ -119,10 +119,10 @@
 
 <!-- STATS:START -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Total%20Contributions-1%2C672-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
-  <img src="https://img.shields.io/badge/Merged%20PRs-194-10b981?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
+  <img src="https://img.shields.io/badge/Total%20Contributions-1%2C673-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
+  <img src="https://img.shields.io/badge/Merged%20PRs-164-10b981?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
   <img src="https://img.shields.io/badge/Highest%20Day-90%20in%201%20Day-f59e0b?style=for-the-badge&logo=speedtest&logoColor=white" alt="Highest Contribution Day" />
-  <img src="https://img.shields.io/badge/Total%20Stars-10-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
+  <img src="https://img.shields.io/badge/Total%20Stars-6-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
 </p>
 
 #### 🏆 Contribution Records & Yearly Milestones
@@ -130,10 +130,10 @@
 | Metric | Record / Count | Details |
 | :--- | :--- | :--- |
 | **🏆 Highest Single-Day Output** | **90 contributions** | August 15, 2026 |
-| **🔀 Merged Pull Requests** | **194 PRs** | Production features, ERP modules & audits |
-| **📅 2026 Contributions** | **1,671 contributions** | Yearly commit & review activity |
+| **🔀 Merged Pull Requests** | **164 PRs** | Production features, ERP modules & audits |
+| **📅 2026 Contributions** | **1,672 contributions** | Yearly commit & review activity |
 | **📅 2025 Contributions** | **1 contribution** | Account creation (Oct 2025) |
-| **⭐ Total Stars Earned** | **10 stars** | Across open-source repositories |
+| **⭐ Total Stars Earned** | **6 stars** | Across open-source repositories |
 <!-- STATS:END -->
 
 <div align="center">
