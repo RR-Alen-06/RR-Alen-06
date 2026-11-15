@@ -32,16 +32,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
 
-      - name: Commit & Push README Updates if Changed
+      - name: Commit & Push README & Stats Card Updates if Changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet README.md; then
-            git add README.md
-            git commit -m "chore(stats): auto-update contribution milestones [skip ci]"
+          if ! git diff --quiet README.md assets/stats-card.svg; then
+            git add README.md assets/stats-card.svg
+            git commit -m "chore(stats): auto-update contribution milestones & stats card [skip ci]"
             git push origin main
           else
-            echo "No changes in README.md stats."
+            echo "No changes in README.md or stats card."
           fi
 
       - name: Generate github-contribution-grid-snake.svg
