@@ -35,6 +35,14 @@
 
 ---
 
+### 🔭 Currently Working On & 🌱 Learning
+
+- 🛠️ **Building**: Offline-first POS & ERP suites (`SimpleBilling`, `simplebilling_mobile`, `MarkSea`, `Market-BIA`) and `Portfolio-Builder`.
+- 🌱 **Exploring**: Advanced PostgreSQL RLS patterns, Drift/SQLite sync engines, and **ESP32 / Arduino IoT** hardware automation.
+- 💬 **Ask me about**: Next.js 16, Flutter + Riverpod, Supabase multi-tenancy, ESC/POS thermal printing, or circuit tinkering.
+
+---
+
 ### 🛠️ Tech Stack
 
 <div align="center">
@@ -104,5 +112,22 @@
 <p>
   <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8" alt="GitHub Streak" />
 </p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RR-Alen-06/RR-Alen-06/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RR-Alen-06/RR-Alen-06/output/github-contribution-grid-snake.svg" />
+  <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/RR-Alen-06/RR-Alen-06/output/github-contribution-grid-snake-dark.svg" />
+</picture>
+
+</div>
+
+---
+
+### 🤝 Connect With Me
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-RR--Alen--06-0f172a?style=for-the-badge&logo=github&logoColor=38bdf8)](https://github.com/RR-Alen-06)
+[![GitHub Followers](https://img.shields.io/github/followers/RR-Alen-06?label=Follow&style=for-the-badge&color=10b981&logo=github)](https://github.com/RR-Alen-06?tab=followers)
 
 </div>
