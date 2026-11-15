@@ -120,42 +120,28 @@
 <!-- STATS:START -->
 <p align="center">
   <img src="https://img.shields.io/badge/Total%20Contributions-1%2C673-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
-  <img src="https://img.shields.io/badge/Merged%20PRs-164-10b981?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
+  <img src="https://img.shields.io/badge/Merged%20PRs-194-10b981?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
   <img src="https://img.shields.io/badge/Highest%20Day-90%20in%201%20Day-f59e0b?style=for-the-badge&logo=speedtest&logoColor=white" alt="Highest Contribution Day" />
-  <img src="https://img.shields.io/badge/Total%20Stars-6-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
+  <img src="https://img.shields.io/badge/Total%20Stars-10-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
 </p>
-
-#### 🏆 Contribution Records & Yearly Milestones
-
-| Metric | Record / Count | Details |
-| :--- | :--- | :--- |
-| **🏆 Highest Single-Day Output** | **90 contributions** | August 15, 2026 |
-| **🔀 Merged Pull Requests** | **164 PRs** | Production features, ERP modules & audits |
-| **📅 2026 Contributions** | **1,672 contributions** | Yearly commit & review activity |
-| **📅 2025 Contributions** | **1 contribution** | Account creation (Oct 2025) |
-| **⭐ Total Stars Earned** | **6 stars** | Across open-source repositories |
 <!-- STATS:END -->
 
 <div align="center">
 
-<!-- Productive Time & Languages by Commits -->
-<p>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=RR-Alen-06&theme=tokyonight" alt="Productive Time (Morning/Day/Evening/Night)" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RR-Alen-06&theme=tokyonight" alt="Languages by Commits" />
-</p>
-
-<!-- Profile Details & Overall Stats -->
+<!-- Profile Details & Contribution Graph -->
 <p>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RR-Alen-06&theme=tokyonight" alt="Alen's Profile Details & Contribution Graph" />
 </p>
 
+<!-- Language Breakdowns (By Commits & By Repos) -->
 <p>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RR-Alen-06&theme=tokyonight" alt="Alen's GitHub Stats" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RR-Alen-06&theme=tokyonight" alt="Alen's Top Languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RR-Alen-06&theme=tokyonight" alt="Languages by Commits" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RR-Alen-06&theme=tokyonight" alt="Top Languages by Repo" />
 </p>
 
-<!-- Streak Counter -->
+<!-- Overall Stats & Streak Counter -->
 <p>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RR-Alen-06&theme=tokyonight" alt="Alen's GitHub Stats" />
   <img src="https://streak-stats.demolab.com?user=RR-Alen-06&theme=tokyonight&background=0f172a&border=1e293b&ring=38bdf8&fire=f59e0b&currStreakLabel=38bdf8&timezone=Asia/Kolkata" alt="GitHub Streak" />
 </p>
 

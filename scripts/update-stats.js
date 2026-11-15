@@ -1,13 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const [year, month, day] = dateStr.split('-');
-  const date = new Date(year, parseInt(month, 10) - 1, day);
-  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-}
-
 async function getStats(token, username) {
   const query = `
     query($login: String!) {
@@ -49,7 +42,6 @@ async function getStats(token, username) {
   const totalStars = user.repositories.nodes.reduce((acc, r) => acc + (r.stargazerCount || 0), 0);
 
   let totalContributions = 0;
-  let yearlyStats = [];
   let maxDay = { date: '', count: 0 };
 
   for (const year of years) {
@@ -85,9 +77,7 @@ async function getStats(token, username) {
 
     const yearJson = await yearRes.json();
     const cal = yearJson.data.user.contributionsCollection.contributionCalendar;
-    const count = cal.totalContributions;
-    totalContributions += count;
-    yearlyStats.push({ year, count });
+    totalContributions += cal.totalContributions;
 
     for (const week of cal.weeks) {
       for (const day of week.contributionDays) {
@@ -98,18 +88,11 @@ async function getStats(token, username) {
     }
   }
 
-  return { totalContributions, yearlyStats, maxDay, mergedPRs, totalStars };
+  return { totalContributions, maxDay, mergedPRs, totalStars };
 }
 
 function generateStatsMarkdown(stats) {
   const formattedTotal = stats.totalContributions.toLocaleString();
-  const formattedPeakDay = formatDate(stats.maxDay.date);
-
-  let yearlyRows = stats.yearlyStats.map(y => {
-    const note = y.year === 2025 ? 'Account creation (Oct 2025)' : 'Yearly commit & review activity';
-    const unit = y.count === 1 ? 'contribution' : 'contributions';
-    return `| **📅 ${y.year} Contributions** | **${y.count.toLocaleString()} ${unit}** | ${note} |`;
-  }).join('\n');
 
   return `<!-- STATS:START -->
 <p align="center">
@@ -118,15 +101,6 @@ function generateStatsMarkdown(stats) {
   <img src="https://img.shields.io/badge/Highest%20Day-${stats.maxDay.count}%20in%201%20Day-f59e0b?style=for-the-badge&logo=speedtest&logoColor=white" alt="Highest Contribution Day" />
   <img src="https://img.shields.io/badge/Total%20Stars-${stats.totalStars}-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
 </p>
-
-#### 🏆 Contribution Records & Yearly Milestones
-
-| Metric | Record / Count | Details |
-| :--- | :--- | :--- |
-| **🏆 Highest Single-Day Output** | **${stats.maxDay.count} contributions** | ${formattedPeakDay} |
-| **🔀 Merged Pull Requests** | **${stats.mergedPRs} PRs** | Production features, ERP modules & audits |
-${yearlyRows}
-| **⭐ Total Stars Earned** | **${stats.totalStars} stars** | Across open-source repositories |
 <!-- STATS:END -->`;
 }
 
@@ -153,12 +127,11 @@ async function run() {
   if (regex.test(readmeContent)) {
     updatedContent = readmeContent.replace(regex, newSection);
   } else {
-    // Append or replace placeholder if marker doesn't exist
-    updatedContent = readmeContent.replace('### 📊 GitHub Analytics\n\n<div align="center">', `### 📊 GitHub Analytics\n\n<div align="center">\n\n${newSection}`);
+    updatedContent = readmeContent.replace('### 📊 GitHub Analytics\n\n<div align="center">', `### 📊 GitHub Analytics\n\n${newSection}\n\n<div align="center">`);
   }
 
   fs.writeFileSync(readmePath, updatedContent, 'utf8');
-  console.log('README.md updated successfully with fresh stats!');
+  console.log('README.md updated successfully with fresh stats badges!');
 }
 
 run().catch(err => {
