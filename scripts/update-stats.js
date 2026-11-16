@@ -9,6 +9,8 @@ function formatDate(dateStr) {
 }
 
 async function getStats(token, username) {
+  const currentYear = new Date().getFullYear();
+
   const query = `
     query($login: String!) {
       user(login: $login) {
@@ -99,17 +101,33 @@ async function getStats(token, username) {
     }
   }
 
-  // Calculate Streak
+  // Robust Streak Calculation
   allDays.sort((a, b) => a.date.localeCompare(b.date));
   const todayStr = new Date().toISOString().slice(0, 10);
   const pastDays = allDays.filter(d => d.date <= todayStr);
 
   let currentStreak = 0;
-  for (let i = pastDays.length - 1; i >= 0; i--) {
-    if (pastDays[i].contributionCount > 0) {
-      currentStreak++;
-    } else {
-      break;
+  if (pastDays.length > 0) {
+    const lastDay = pastDays[pastDays.length - 1];
+    let startIndex = pastDays.length - 1;
+
+    // If no contribution yet today, check if yesterday had contributions so streak isn't reset
+    if (lastDay.contributionCount === 0) {
+      if (pastDays.length > 1 && pastDays[pastDays.length - 2].contributionCount > 0) {
+        startIndex = pastDays.length - 2;
+      } else {
+        startIndex = -1;
+      }
+    }
+
+    if (startIndex >= 0) {
+      for (let i = startIndex; i >= 0; i--) {
+        if (pastDays[i].contributionCount > 0) {
+          currentStreak++;
+        } else {
+          break;
+        }
+      }
     }
   }
 
@@ -124,19 +142,37 @@ async function getStats(token, username) {
     }
   }
 
-  return { totalContributions, yearlyStats, maxDay, mergedPRs, totalStars, currentStreak, longestStreak };
+  const currentYearData = yearlyStats.find(y => y.year === currentYear) || { year: currentYear, count: 0 };
+
+  return {
+    totalContributions,
+    currentYear,
+    currentYearContributions: currentYearData.count,
+    yearlyStats,
+    maxDay,
+    mergedPRs,
+    totalStars,
+    currentStreak,
+    longestStreak
+  };
 }
 
 function generateStatsSvg(stats) {
   const total = stats.totalContributions.toLocaleString();
+  const currentYear = stats.currentYear;
+  const currentYearCount = stats.currentYearContributions.toLocaleString();
   const prs = stats.mergedPRs.toLocaleString();
   const stars = stats.totalStars.toLocaleString();
   const peakCount = stats.maxDay.count;
   const peakDate = formatDate(stats.maxDay.date);
   const currentStreak = stats.currentStreak;
   const longestStreak = stats.longestStreak;
-  const y2026 = stats.yearlyStats.find(y => y.year === 2026)?.count.toLocaleString() || '0';
-  const y2025 = stats.yearlyStats.find(y => y.year === 2025)?.count.toLocaleString() || '1';
+
+  // History summary string
+  const historyText = stats.yearlyStats
+    .sort((a, b) => b.year - a.year)
+    .map(y => `${y.year}: ${y.count.toLocaleString()}`)
+    .join('  •  ');
 
   return `<svg width="860" height="210" viewBox="0 0 860 210" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -157,8 +193,8 @@ function generateStatsSvg(stats) {
     <style>
       .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #f8fafc; letter-spacing: 0.5px; }
       .hdr-badge { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; font-weight: 600; fill: #10b981; }
-      .stat-num { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 800; }
-      .stat-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #e2e8f0; }
+      .stat-num { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 800; }
+      .stat-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #e2e8f0; }
       .stat-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #64748b; }
       .bot-text { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; fill: #94a3b8; }
     </style>
@@ -168,54 +204,62 @@ function generateStatsSvg(stats) {
   <rect x="1.5" y="1.5" width="857" height="207" rx="14" fill="url(#cardBg)" stroke="url(#cardBorder)" stroke-width="2" />
 
   <!-- Header Row -->
-  <g transform="translate(24, 28)">
+  <g transform="translate(20, 28)">
     <text x="0" y="0" class="hdr-title">📊 VERIFIED GITHUB ACTIVITY &amp; STATS</text>
     <rect x="360" y="-13" width="220" height="20" rx="10" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.3" />
     <text x="470" y="1" text-anchor="middle" class="hdr-badge">● LIVE REAL-TIME DATA</text>
   </g>
 
   <!-- Separator Line -->
-  <line x1="24" y1="46" x2="836" y2="46" stroke="#1e293b" stroke-width="1.2" />
+  <line x1="20" y1="46" x2="840" y2="46" stroke="#1e293b" stroke-width="1.2" />
 
-  <!-- Stat Columns (4 columns) -->
-  <!-- Col 1: Total Contributions -->
-  <g transform="translate(24, 66)">
-    <rect x="0" y="0" width="190" height="92" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
-    <text x="18" y="38" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">${total}</text>
-    <text x="18" y="60" class="stat-lbl">Total Contributions</text>
-    <text x="18" y="78" class="stat-sub">Commits, PRs &amp; Reviews</text>
+  <!-- 5 Stat Columns Across (154px width each, 12px gaps) -->
+  <!-- Box 1: Total Contributions -->
+  <g transform="translate(20, 66)">
+    <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
+    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">${total}</text>
+    <text x="14" y="58" class="stat-lbl">Total Contribs</text>
+    <text x="14" y="76" class="stat-sub">All-Time Activity</text>
   </g>
 
-  <!-- Col 2: Current Streak -->
-  <g transform="translate(228, 66)">
-    <rect x="0" y="0" width="190" height="92" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.25" />
-    <text x="18" y="38" fill="#10b981" class="stat-num" filter="url(#softGlow)">${currentStreak} <tspan font-size="20">Days</tspan></text>
-    <text x="18" y="60" class="stat-lbl">Current Streak 🔥</text>
-    <text x="18" y="78" class="stat-sub">Longest: ${longestStreak} Days</text>
+  <!-- Box 2: Current Year Contributions (Automatically updates every year) -->
+  <g transform="translate(186, 66)">
+    <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.25" />
+    <text x="14" y="36" fill="#10b981" class="stat-num" filter="url(#softGlow)">${currentYearCount}</text>
+    <text x="14" y="58" class="stat-lbl">${currentYear} Contribs 📅</text>
+    <text x="14" y="76" class="stat-sub">Current Year</text>
   </g>
 
-  <!-- Col 3: Merged PRs -->
-  <g transform="translate(432, 66)">
-    <rect x="0" y="0" width="190" height="92" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#c084fc" stroke-opacity="0.25" />
-    <text x="18" y="38" fill="#c084fc" class="stat-num" filter="url(#softGlow)">${prs}</text>
-    <text x="18" y="60" class="stat-lbl">Merged Pull Requests 🔀</text>
-    <text x="18" y="78" class="stat-sub">Across All Repositories</text>
+  <!-- Box 3: Current Streak -->
+  <g transform="translate(352, 66)">
+    <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
+    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">${currentStreak} <tspan font-size="18">Days</tspan></text>
+    <text x="14" y="58" class="stat-lbl">Current Streak 🔥</text>
+    <text x="14" y="76" class="stat-sub">Max: ${longestStreak} Days</text>
   </g>
 
-  <!-- Col 4: Peak Daily Output -->
-  <g transform="translate(636, 66)">
-    <rect x="0" y="0" width="200" height="92" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#f59e0b" stroke-opacity="0.25" />
-    <text x="18" y="38" fill="#f59e0b" class="stat-num" filter="url(#softGlow)">${peakCount}</text>
-    <text x="18" y="60" class="stat-lbl">Highest Output Day 🏆</text>
-    <text x="18" y="78" class="stat-sub">${peakDate}</text>
+  <!-- Box 4: Merged PRs -->
+  <g transform="translate(518, 66)">
+    <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#c084fc" stroke-opacity="0.25" />
+    <text x="14" y="36" fill="#c084fc" class="stat-num" filter="url(#softGlow)">${prs}</text>
+    <text x="14" y="58" class="stat-lbl">Merged PRs 🔀</text>
+    <text x="14" y="76" class="stat-sub">Across All Repos</text>
+  </g>
+
+  <!-- Box 5: Peak Daily Output -->
+  <g transform="translate(684, 66)">
+    <rect x="0" y="0" width="156" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#f59e0b" stroke-opacity="0.25" />
+    <text x="14" y="36" fill="#f59e0b" class="stat-num" filter="url(#softGlow)">${peakCount}</text>
+    <text x="14" y="58" class="stat-lbl">Peak Day 🏆</text>
+    <text x="14" y="76" class="stat-sub">${peakDate}</text>
   </g>
 
   <!-- Bottom Details Bar -->
-  <line x1="24" y1="174" x2="836" y2="174" stroke="#1e293b" stroke-width="1.2" />
-  <g transform="translate(24, 193)">
+  <line x1="20" y1="174" x2="840" y2="174" stroke="#1e293b" stroke-width="1.2" />
+  <g transform="translate(20, 193)">
     <text x="0" y="0" class="bot-text">⭐ ${stars} Stars Earned</text>
-    <text x="430" y="0" text-anchor="middle" class="bot-text">📅 2026: ${y2026} contribs  •  2025: ${y2025} contrib</text>
-    <text x="812" y="0" text-anchor="end" class="bot-text">⚡ Auto-Updated Daily</text>
+    <text x="430" y="0" text-anchor="middle" class="bot-text">📅 ${historyText}</text>
+    <text x="820" y="0" text-anchor="end" class="bot-text">⚡ Auto-Updated Daily</text>
   </g>
 </svg>`;
 }
@@ -241,17 +285,20 @@ async function run() {
 
   const svgCardPath = path.join(assetsDir, 'stats-card.svg');
   fs.writeFileSync(svgCardPath, generateStatsSvg(stats), 'utf8');
-  console.log('assets/stats-card.svg generated successfully!');
+  console.log('assets/stats-card.svg generated successfully with 5-box layout!');
 
   // Update README.md
   const readmePath = path.resolve(__dirname, '..', 'README.md');
   const readmeContent = fs.readFileSync(readmePath, 'utf8');
 
   const formattedTotal = stats.totalContributions.toLocaleString();
+  const currentYearFormatted = stats.currentYearContributions.toLocaleString();
+
   const badgesMarkdown = `<!-- STATS:START -->
 <p align="center">
   <img src="https://img.shields.io/badge/Total%20Contributions-${encodeURIComponent(formattedTotal)}-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
-  <img src="https://img.shields.io/badge/Current%20Streak-${stats.currentStreak}%20Days-10b981?style=for-the-badge&logo=speedtest&logoColor=white" alt="Current Streak" />
+  <img src="https://img.shields.io/badge/${stats.currentYear}%20Contributions-${encodeURIComponent(currentYearFormatted)}-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="${stats.currentYear} Contributions" />
+  <img src="https://img.shields.io/badge/Current%20Streak-${stats.currentStreak}%20Days-38bdf8?style=for-the-badge&logo=speedtest&logoColor=white" alt="Current Streak" />
   <img src="https://img.shields.io/badge/Merged%20PRs-${stats.mergedPRs}-c084fc?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
   <img src="https://img.shields.io/badge/Peak%20Day-${stats.maxDay.count}%20in%201%20Day-f59e0b?style=for-the-badge&logo=fire&logoColor=white" alt="Peak Day" />
   <img src="https://img.shields.io/badge/Total%20Stars-${stats.totalStars}-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
