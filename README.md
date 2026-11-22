@@ -119,10 +119,10 @@
 
 <!-- STATS:START -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Total%20Contributions-1%2C687-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
-  <img src="https://img.shields.io/badge/2026%20Contributions-1%2C686-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 Contributions" />
-  <img src="https://img.shields.io/badge/Current%20Streak-62%20Days-38bdf8?style=for-the-badge&logo=speedtest&logoColor=white" alt="Current Streak" />
-  <img src="https://img.shields.io/badge/Merged%20PRs-167-c084fc?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
+  <img src="https://img.shields.io/badge/Total%20Contributions-1%2C690-0ea5e9?style=for-the-badge&logo=github&logoColor=white" alt="Total Contributions" />
+  <img src="https://img.shields.io/badge/2026%20Contributions-1%2C689-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="2026 Contributions" />
+  <img src="https://img.shields.io/badge/Current%20Streak-63%20Days-38bdf8?style=for-the-badge&logo=speedtest&logoColor=white" alt="Current Streak" />
+  <img src="https://img.shields.io/badge/Merged%20PRs-168-c084fc?style=for-the-badge&logo=git&logoColor=white" alt="Merged PRs" />
   <img src="https://img.shields.io/badge/Peak%20Day-90%20in%201%20Day-f59e0b?style=for-the-badge&logo=fire&logoColor=white" alt="Peak Day" />
   <img src="https://img.shields.io/badge/Total%20Stars-8-8b5cf6?style=for-the-badge&logo=apachespark&logoColor=white" alt="Total Stars" />
 </p>
