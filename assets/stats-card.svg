@@ -41,7 +41,7 @@
   <!-- Box 1: Total Contributions -->
   <g transform="translate(20, 66)">
     <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
-    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">1,690</text>
+    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">1,691</text>
     <text x="14" y="58" class="stat-lbl">Total Contribs</text>
     <text x="14" y="76" class="stat-sub">All-Time Activity</text>
   </g>
@@ -49,7 +49,7 @@
   <!-- Box 2: Current Year Contributions (Automatically updates every year) -->
   <g transform="translate(186, 66)">
     <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#10b981" stroke-opacity="0.25" />
-    <text x="14" y="36" fill="#10b981" class="stat-num" filter="url(#softGlow)">1,689</text>
+    <text x="14" y="36" fill="#10b981" class="stat-num" filter="url(#softGlow)">1,690</text>
     <text x="14" y="58" class="stat-lbl">2026 Contribs 📅</text>
     <text x="14" y="76" class="stat-sub">Current Year</text>
   </g>
@@ -57,9 +57,9 @@
   <!-- Box 3: Current Streak -->
   <g transform="translate(352, 66)">
     <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
-    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">63 <tspan font-size="18">Days</tspan></text>
+    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">64 <tspan font-size="18">Days</tspan></text>
     <text x="14" y="58" class="stat-lbl">Current Streak 🔥</text>
-    <text x="14" y="76" class="stat-sub">Max: 63 Days</text>
+    <text x="14" y="76" class="stat-sub">Max: 64 Days</text>
   </g>
 
   <!-- Box 4: Merged PRs -->
@@ -82,7 +82,7 @@
   <line x1="20" y1="174" x2="840" y2="174" stroke="#1e293b" stroke-width="1.2" />
   <g transform="translate(20, 193)">
     <text x="0" y="0" class="bot-text">⭐ 8 Stars Earned</text>
-    <text x="430" y="0" text-anchor="middle" class="bot-text">📅 2026: 1,689  •  2025: 1</text>
+    <text x="430" y="0" text-anchor="middle" class="bot-text">📅 2026: 1,690  •  2025: 1</text>
     <text x="820" y="0" text-anchor="end" class="bot-text">⚡ Auto-Updated Daily</text>
   </g>
 </svg>
