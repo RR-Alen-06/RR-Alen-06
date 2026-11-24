@@ -57,7 +57,7 @@
   <!-- Box 3: Current Streak -->
   <g transform="translate(352, 66)">
     <rect x="0" y="0" width="154" height="94" rx="10" fill="#0f172a" fill-opacity="0.6" stroke="#38bdf8" stroke-opacity="0.25" />
-    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">64 <tspan font-size="18">Days</tspan></text>
+    <text x="14" y="36" fill="#38bdf8" class="stat-num" filter="url(#softGlow)">0 <tspan font-size="18">Days</tspan></text>
     <text x="14" y="58" class="stat-lbl">Current Streak 🔥</text>
     <text x="14" y="76" class="stat-sub">Max: 64 Days</text>
   </g>
